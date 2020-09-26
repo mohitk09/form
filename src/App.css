@@ -16,11 +16,16 @@
 .h1{
   text-align: center;
 }
+.text-field{
+  width: 200px;
+}
 
 .left-div{
-  margin-left: 0px;
+  margin-left: 50px;
   background-color: rgb(247, 247, 247);
-  width: 400px;
+}
+.right-div{
+  width: 300px; 
 }
 
 
