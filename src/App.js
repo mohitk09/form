@@ -32,6 +32,9 @@ const useStyles = makeStyles({
 
 function App() {
   const [categoryValue, setCategoryValue] = React.useState('Yes');
+  const [HyperparameterValue, setHyperparameterValue] = React.useState('Yes');
+  const [kFold, setKFold] = React.useState('Yes');
+  const [conditionalValue, setConditionalValue] = React.useState('Yes');
   const [selectValue, setSelect] = React.useState('');
   const classes = useStyles();
 
@@ -41,12 +44,29 @@ function App() {
   const handleSelect = (event) => {
     setSelect(event.target.value);
   };
+
+  const handleHyperparameter = (event) => {
+    setHyperparameterValue(event.target.value);
+  };
+  const handleKFold = (event) => {
+    setKFold(event.target.value);
+  };
+
+  const handleConditonal = (event) => {
+    setConditionalValue(event.target.value);
+  };
+
   const renderConditonalItem = () => {
     if (selectValue === true) {
       return (
         <FormControl style={{ marginTop: 20 }}>
           <FormLabel component="legend">Conditonal Item rendered is RadioGroup</FormLabel>
-          <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
+          <RadioGroup
+            name="conditionalValue"
+            value={conditionalValue}
+            onChange={handleConditonal}
+            row
+          >
             <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
             <FormControlLabel value="No" control={<Radio />} label="No" />
           </RadioGroup>
@@ -108,7 +128,12 @@ function App() {
               <FormLabel component="legend">Hyperparameter tuning</FormLabel>
               <Grid container style={{ display: 'flex', alignItems: 'center', width: '132%' }}>
                 <Grid item xs={11} fullWidth>
-                  <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
+                  <RadioGroup
+                    name="Category"
+                    value={HyperparameterValue}
+                    onChange={handleHyperparameter}
+                    row
+                  >
                     <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="No" control={<Radio />} label="No" />
                   </RadioGroup>
@@ -125,7 +150,7 @@ function App() {
               </FormLabel>
               <Grid container style={{ display: 'flex', alignItems: 'center', width: '132%' }}>
                 <Grid item xs={11} fullWidth>
-                  <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
+                  <RadioGroup name="Category" value={kFold} onChange={handleKFold} row>
                     <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="No" control={<Radio />} label="No" />
                   </RadioGroup>
