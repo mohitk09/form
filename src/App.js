@@ -106,10 +106,7 @@ function App() {
           <form>
             <FormControl style={{ marginTop: 20 }}>
               <FormLabel component="legend">Hyperparameter tuning</FormLabel>
-              <Grid
-                container
-                style={{ display: 'flex', alignItems: 'center', width: '132%', marginTop: 20 }}
-              >
+              <Grid container style={{ display: 'flex', alignItems: 'center', width: '132%' }}>
                 <Grid item xs={11} fullWidth>
                   <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
                     <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
@@ -126,21 +123,18 @@ function App() {
               <FormLabel style={{ marginTop: 20 }} component="legend">
                 K Fold Flag
               </FormLabel>
-              <Grid
-                container
-                style={{ display: 'flex', alignItems: 'center', width: '132%', marginTop: 20 }}
-              >
+              <Grid container style={{ display: 'flex', alignItems: 'center', width: '132%' }}>
                 <Grid item xs={11} fullWidth>
                   <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
                     <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="No" control={<Radio />} label="No" />
                   </RadioGroup>
                 </Grid>
-              </Grid>
-              <Grid item xs={1}>
-                <Tooltip title="No idea contact UX designer">
-                  <InfoIcon />
-                </Tooltip>
+                <Grid item xs={1}>
+                  <Tooltip title="No idea contact UX designer">
+                    <InfoIcon />
+                  </Tooltip>
+                </Grid>
               </Grid>
               <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
                 <Select fullWidth value={selectValue} onChange={handleSelect} displayEmpty>
