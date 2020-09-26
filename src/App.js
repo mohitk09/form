@@ -44,14 +44,9 @@ function App() {
   const renderConditonalItem = () => {
     if (selectValue === true) {
       return (
-        <FormControl>
-          <FormLabel component="legend">Hyperparameter tuning</FormLabel>
-          <RadioGroup
-            aria-label="gender"
-            name="Category"
-            value={categoryValue}
-            onChange={handleChange}
-          >
+        <FormControl style={{ marginTop: 20 }}>
+          <FormLabel component="legend">Conditonal Item rendered is RadioGroup</FormLabel>
+          <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
             <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
             <FormControlLabel value="No" control={<Radio />} label="No" />
           </RadioGroup>
@@ -59,126 +54,137 @@ function App() {
       );
     } else if (selectValue === false) {
       return (
-        <Checkbox
-          defaultChecked
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
+        <FormControl style={{ marginTop: 20 }}>
+          <FormLabel component="legend">Conditonal Item rendered is Checkbox</FormLabel>
+          <Checkbox defaultChecked color="primary" />
+        </FormControl>
       );
     }
   };
 
   return (
-    <>
-      <br />
-      <br />
-      <br />
-      <Grid container>
-        <Grid item md={6} xs={12} classes={{ item: classes.contentWrapper }}>
-          <CardTitle title="Input Params" />
-          <div>
-            <form>
-              <div style={{ display: 'flex', alignItems: 'center', width: '70%', marginTop: 20 }}>
-                <TextField fullWidth id="standard-basic" label="Index of Label Column" />
-                <Tooltip title="Delete">
+    <Grid container>
+      <Grid item xs={12} style={{ textAlign: 'center' }}>
+        <h2> Responsive Form</h2>
+      </Grid>
+
+      <Grid item md={6} xs={12} classes={{ item: classes.contentWrapper }}>
+        <CardTitle title="Input Params" />
+        <div>
+          <form>
+            <div style={{ display: 'flex', alignItems: 'center', width: '60%', marginTop: 20 }}>
+              <TextField fullWidth id="standard-basic" label="Index of Label Column" />
+              <Tooltip title="Choose the index of the label column please">
+                <InfoIcon />
+              </Tooltip>
+            </div>
+            <div style={{ marginTop: 20 }}>
+              <FormLabel component="legend">Automatic Cat. Column Flag</FormLabel>
+              <RadioGroup
+                aria-label="gender"
+                name="Category"
+                value={categoryValue}
+                onChange={handleChange}
+                row
+              >
+                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                <FormControlLabel value="No" control={<Radio />} label="No" />
+              </RadioGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', width: '60%' }}>
+              <TextField fullWidth id="standard-basic" label="Categorical Columns" />
+              <Tooltip title="Contact system admin for more info">
+                <InfoIcon />
+              </Tooltip>
+            </div>
+          </form>
+        </div>
+      </Grid>
+      <Grid item md={6} xs={12} classes={{ item: classes.contentWrapper }}>
+        <CardTitle title="Algo Params" />
+        <div>
+          <form>
+            <FormControl style={{ marginTop: 20 }}>
+              <FormLabel component="legend">Hyperparameter tuning</FormLabel>
+              <Grid
+                container
+                style={{ display: 'flex', alignItems: 'center', width: '132%', marginTop: 20 }}
+              >
+                <Grid item xs={11} fullWidth>
+                  <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
+                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="No" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
+                <Grid item xs={1}>
+                  <Tooltip title="No idea contact UX designer">
+                    <InfoIcon />
+                  </Tooltip>
+                </Grid>
+              </Grid>
+
+              <FormLabel style={{ marginTop: 20 }} component="legend">
+                K Fold Flag
+              </FormLabel>
+              <Grid
+                container
+                style={{ display: 'flex', alignItems: 'center', width: '132%', marginTop: 20 }}
+              >
+                <Grid item xs={11} fullWidth>
+                  <RadioGroup name="Category" value={categoryValue} onChange={handleChange} row>
+                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="No" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
+              </Grid>
+              <Grid item xs={1}>
+                <Tooltip title="No idea contact UX designer">
                   <InfoIcon />
                 </Tooltip>
-              </div>
-              <div style={{ marginTop: 40 }}>
-                <FormLabel component="legend">Automatic Cat. Column Flag</FormLabel>
-                <RadioGroup
-                  aria-label="gender"
-                  name="Category"
-                  value={categoryValue}
-                  onChange={handleChange}
-                  row
-                >
-                  <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="No" control={<Radio />} label="No" />
-                </RadioGroup>
-              </div>
-              <div style={{ marginTop: 40 }}>
-                <TextField id="standard-basic" label="Categorical Columns" />
-                <Tooltip title="Delete">
-                  <InfoIcon />
-                </Tooltip>
-              </div>
-            </form>
-          </div>
-        </Grid>
-        <Grid item md={6} xs={12} classes={{ item: classes.contentWrapper }}>
-          <CardTitle title="Algo Params" />
-          <div>
-            <form>
-              <FormControl>
-                <FormLabel component="legend">Hyperparameter tuning</FormLabel>
-                <RadioGroup
-                  aria-label="gender"
-                  name="Category"
-                  value={categoryValue}
-                  onChange={handleChange}
-                  row
-                >
-                  <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="No" control={<Radio />} label="No" />
-                </RadioGroup>
-                <FormLabel component="legend">K Fold Flag</FormLabel>
-                <RadioGroup
-                  aria-label="gender"
-                  name="Category"
-                  value={categoryValue}
-                  onChange={handleChange}
-                >
-                  <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="No" control={<Radio />} label="No" />
-                </RadioGroup>
-                <Select value={selectValue} onChange={handleSelect} displayEmpty>
+              </Grid>
+              <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
+                <Select fullWidth value={selectValue} onChange={handleSelect} displayEmpty>
                   <MenuItem value="" disabled>
                     trainTestSplitRandomType
                   </MenuItem>
                   <MenuItem value={true}>True</MenuItem>
                   <MenuItem value={false}>False</MenuItem>
                 </Select>
+                <Tooltip title="No idea contact UX designer">
+                  <InfoIcon />
+                </Tooltip>
+              </div>
 
-                {renderConditonalItem()}
-                <div>
-                  <TextField
-                    id="standard-basic"
-                    label="Training Data Percentage"
-                    className="text-field"
-                  />
+              {renderConditonalItem()}
+              <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
+                <TextField fullWidth id="standard-basic" label="Training Data Percentage" />
+                <Tooltip title="Choose the index of the label column please">
                   <InfoIcon />
-                </div>
-                <div>
-                  <TextField
-                    id="standard-basic"
-                    label="Text Data Percentage"
-                    className="text-field"
-                  />
+                </Tooltip>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
+                <TextField fullWidth id="standard-basic" label="Text Data Percentage" />
+                <Tooltip title="No idea contact UX designer">
                   <InfoIcon />
-                </div>
-                <div>
-                  <TextField
-                    id="standard-basic"
-                    label="Maximum Depth of Tree"
-                    className="text-field"
-                  />
+                </Tooltip>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
+                <TextField fullWidth id="standard-basic" label="Maximum Depth of Tree" />
+                <Tooltip title="Read about depth of tree please">
                   <InfoIcon />
-                </div>
-                <div>
-                  <TextField
-                    id="standard-basic"
-                    label="Maximum number of bins"
-                    className="text-field"
-                  />
+                </Tooltip>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', width: '130%', marginTop: 20 }}>
+                <TextField fullWidth id="standard-basic" label="Maximum number of bins" />
+                <Tooltip title="Contact system admin">
                   <InfoIcon />
-                </div>
-              </FormControl>
-            </form>
-          </div>
-        </Grid>
+                </Tooltip>
+              </div>
+            </FormControl>
+          </form>
+        </div>
       </Grid>
-    </>
+    </Grid>
   );
 }
 

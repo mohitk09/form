@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
   root: {
-    background: '#051124',
+    background: 'rgb(82, 120, 156)',
     border: 0,
     borderRadius: '4px 4px 0px 0px',
     color: 'white',
