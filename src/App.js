@@ -49,11 +49,9 @@ function App() {
 
   };
 
-  console.log('seclet', selectValue);
-
   return (
     <div>
-    <h1 className="h1"> Dynamic Form</h1>
+    <h1 > Dynamic Form</h1>
     <Grid container spacing={4}>
 
     <Grid item className="left-div">
@@ -90,8 +88,6 @@ function App() {
         <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
         <FormControlLabel value="No" control={<Radio />} label="No" />
         </RadioGroup>
-        {/* <FormHelperText>Placeholder</FormHelperText> */}
-
         <Select
           value={selectValue}
           onChange={handleSelect}
